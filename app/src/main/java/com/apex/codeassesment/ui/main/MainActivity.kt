@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
   }
 
   // TODO (2 points): Convert to extenstion function.
-  private fun navigateDetails(user: User) {
+  fun Context.navigateDetails(user: User) {
     val putExtra = Intent(this, DetailsActivity::class.java).putExtra("saved-user-key", user)
     startActivity(putExtra)
   }
