@@ -11,6 +11,7 @@ import com.apex.codeassesment.data.model.User
 import com.apex.codeassesment.databinding.ActivityMainBinding
 import com.apex.codeassesment.di.MainComponent
 import com.apex.codeassesment.ui.details.DetailsActivity
+import com.bumptech.glide.Glide
 import javax.inject.Inject
 
 // TODO (5 points): Move calls to repository to Presenter or ViewModel.
@@ -31,7 +32,9 @@ class MainActivity : AppCompatActivity() {
   private var randomUser: User = User()
     set(value) {
       // TODO (1 point): Use Glide to load images after getting the data from endpoints mentioned in RemoteDataSource
-      // userImageView.setImageBitmap(refreshedUser.image)
+
+//      Glide.with(this).load(userRepository.getSavedUser().picture!!.thumbnail).into(bi.mainImage)
+
       bi.mainName!!.text = value.name!!.first
       bi.mainEmail!!.text = value.email
       field = value
@@ -39,15 +42,16 @@ class MainActivity : AppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_main)
+    bi = ActivityMainBinding.inflate(layoutInflater)
+    setContentView(bi.root)
     sharedContext = this
 
     (applicationContext as MainComponent.Injector).mainComponent.inject(this)
 
-    val arrayAdapter = ArrayAdapter<User>(this, android.R.layout.simple_list_item_1)
+//    val arrayAdapter = ArrayAdapter<User>(this, android.R.layout.simple_list_item_1)
+      val customAdapter = CustomAdapter()
 
-    bi.mainUserList!!.adapter = arrayAdapter
-    bi.mainUserList?.setOnItemClickListener { parent, _, position, _ -> navigateDetails(parent.getItemAtPosition(position) as User) }
+//    bi.mainUserList?.setOnItemClickListener { parent, _, position, _ -> navigateDetails(parent.getItemAtPosition(position) as User) }
 
     randomUser = userRepository.getSavedUser()
 
@@ -57,8 +61,11 @@ class MainActivity : AppCompatActivity() {
 
     bi.mainUserListButton!!.setOnClickListener {
       val users = userRepository.getUsers()
-      arrayAdapter.clear()
-      arrayAdapter.addAll(users)
+      customAdapter.updateData(users)
+      bi.mainUserList!!.adapter = customAdapter
+      customAdapter.setOnItemClickListener { position ->
+        navigateDetails(users[position])
+      }
     }
   }
 
