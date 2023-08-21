@@ -19,9 +19,6 @@ class CustomAdapter() :
 
     private lateinit var dataSet: List<User>
 
-    interface OnItemClickListener {
-        fun onItemClick(position: Int)
-    }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView
