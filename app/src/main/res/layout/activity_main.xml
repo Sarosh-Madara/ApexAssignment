@@ -10,130 +10,153 @@
   <!-- TODO (2 points): Convert to ConstraintLayout -->
   <!-- TODO (1 point): Address Android Studio warnings -->
 
-  <RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+  <androidx.constraintlayout.widget.ConstraintLayout
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
 
     <TextView
-      android:id="@+id/main_title"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:text="@string/my_random_user"
-      android:textAppearance="?textAppearanceHeadline4" />
+        android:id="@+id/main_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/my_random_user"
+        android:textAppearance="?textAppearanceHeadline4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_marginTop="16dp"/>
 
     <LinearLayout
-      android:id="@+id/main_selected_card"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_below="@id/main_title"
-      android:layout_marginTop="8dp">
+        android:id="@+id/main_selected_card"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/main_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5">
 
       <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content">
 
         <ImageView
-          android:contentDescription="@string/grey_image_content"
-          android:id="@+id/main_image"
-          android:layout_width="100dp"
-          android:layout_height="100dp"
-          android:background="#33aaaaaa" />
+            android:id="@+id/main_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="#33aaaaaa"
+            android:contentDescription="@string/grey_image_content" />
 
       </FrameLayout>
 
       <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="8dp">
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          android:padding="8dp">
 
         <LinearLayout
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
           <TextView
-            android:id="@+id/main_name_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/name"
-            android:textAppearance="?textAppearanceBody2"
-            android:textStyle="bold" />
+              android:id="@+id/main_name_label"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/name"
+              android:textAppearance="?textAppearanceBody2"
+              android:textStyle="bold" />
 
           <TextView
-            android:id="@+id/main_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:textAppearance="?textAppearanceBody2"
-            tools:text="Jon" />
+              android:id="@+id/main_name"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="4dp"
+              android:textAppearance="?textAppearanceBody2"
+              tools:text="Jon" />
 
         </LinearLayout>
 
         <LinearLayout
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
           <TextView
-            android:id="@+id/main_email_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/email"
-            android:textAppearance="?textAppearanceBody2"
-            android:textStyle="bold" />
+              android:id="@+id/main_email_label"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/email"
+              android:textAppearance="?textAppearanceBody2"
+              android:textStyle="bold" />
 
           <TextView
-            android:id="@+id/main_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:textAppearance="?textAppearanceBody2"
-            tools:text="robert@test.com" />
+              android:id="@+id/main_email"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="4dp"
+              android:textAppearance="?textAppearanceBody2"
+              tools:text="robert@test.com" />
 
         </LinearLayout>
 
         <Button
-          android:id="@+id/main_see_details_button"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:text="@string/view_details" />
+            android:id="@+id/main_see_details_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/view_details" />
 
       </LinearLayout>
 
     </LinearLayout>
 
     <Button
-      android:id="@+id/main_refresh_button"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_below="@id/main_selected_card"
-      android:text="@string/refresh_random_user" />
+        android:id="@+id/main_refresh_button"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:text="@string/refresh_random_user"
+        app:layout_constraintTop_toBottomOf="@id/main_selected_card"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="10dp"
+        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_marginTop="8dp"/>
 
     <View
-      android:id="@+id/main_divider"
-      android:layout_width="match_parent"
-      android:layout_height="2dp"
-      android:layout_below="@id/main_refresh_button"
-      android:layout_marginTop="8dp"
-      android:layout_marginBottom="8dp"
-      android:background="#11111111" />
+        android:id="@+id/main_divider"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        app:layout_constraintTop_toBottomOf="@id/main_refresh_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#11111111"/>
 
     <Button
-      android:id="@+id/main_user_list_button"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_below="@id/main_divider"
-      android:text="@string/show_10_users" />
+        android:id="@+id/main_user_list_button"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:text="@string/show_10_users"
+        app:layout_constraintTop_toBottomOf="@id/main_divider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_marginTop="8dp"/>
 
-    <!-- TODO (5 points): Convert to RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
-      android:id="@+id/main_user_list"
-      app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_below="@id/main_user_list_button"
-      android:layout_marginTop="8dp" />
+        android:id="@+id/main_user_list"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/main_user_list_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
 
-  </RelativeLayout>
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </FrameLayout>
 </layout>
