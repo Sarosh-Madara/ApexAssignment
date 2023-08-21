@@ -9,6 +9,7 @@ import com.apex.codeassesment.data.model.Coordinates
 import com.apex.codeassesment.data.model.User
 import com.apex.codeassesment.databinding.ActivityDetailsBinding
 import com.apex.codeassesment.ui.location.LocationActivity
+import com.bumptech.glide.Glide
 
 // TODO (3 points): Convert to Kotlin
 // TODO (3 points): Remove bugs or crashes if any
@@ -25,6 +26,7 @@ class DetailsActivity : AppCompatActivity() {
 
         // TODO (1 point): Use Glide to load images
 //    binding.detailsImage = user.getPicture().getLarge();
+        Glide.with(this).load(user?.picture?.large).into(binding.detailsImage)
         val name = user!!.name
         binding.detailsName.text = getString(R.string.details_name, name!!.first, name.last)
         binding.detailsEmail.text = getString(R.string.details_email, user.gender)

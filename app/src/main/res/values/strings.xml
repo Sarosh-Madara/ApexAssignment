@@ -16,4 +16,5 @@
     <string name="refresh_random_user">Refresh random user</string>
     <string name="show_10_users">Show 10 users</string>
     <string name="grey_image_content">Grey Image</string>
+    <string name="large_grey_image_content">Large Grey Image Detail</string>
 </resources>
