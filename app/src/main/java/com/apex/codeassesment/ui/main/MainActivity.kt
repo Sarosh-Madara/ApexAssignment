@@ -3,15 +3,12 @@ package com.apex.codeassesment.ui.main
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import com.apex.codeassesment.R
 import com.apex.codeassesment.data.UserRepository
 import com.apex.codeassesment.data.model.User
 import com.apex.codeassesment.databinding.ActivityMainBinding
 import com.apex.codeassesment.di.MainComponent
 import com.apex.codeassesment.ui.details.DetailsActivity
-import com.bumptech.glide.Glide
 import javax.inject.Inject
 
 // TODO (5 points): Move calls to repository to Presenter or ViewModel.
